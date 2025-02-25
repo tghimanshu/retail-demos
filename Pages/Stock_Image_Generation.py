@@ -1,10 +1,14 @@
 import os
 import streamlit as st
 import vertexai
+import os
 from vertexai.preview.vision_models import ImageGenerationModel
 
 def generate_stock_images(background, foreground, art_style, aspect_ratio):
-    vertexai.init(project="learn-361304", location="us-central1")
+    vertexai.init(
+        project=os.environ["PROJECT_ID"],
+        location=os.environ["LOCATION"]
+    )
     imagen_model = ImageGenerationModel.from_pretrained("imagen-3.0-generate-001")
 
     prompt = f"""
