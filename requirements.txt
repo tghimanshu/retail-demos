@@ -1,0 +1,8 @@
+google-cloud-aiplatform
+google-cloud-storage
+pydub
+moviepy
+streamlit
+streamlit-antd-components
+py-dotenv
+google-generativeai
