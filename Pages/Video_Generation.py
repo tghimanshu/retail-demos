@@ -6,6 +6,16 @@ def Video_Generation():
     st.header("Video Generation")
 
     use_cases = [
+        "Floral Lady",
+        "Men Western",
+        "Men Suit",
+        "Women Saree",
+        "Women Western",
+        "Toaster",
+        "Dining Area",
+        "Room",
+        "Sofa",
+        "Shoe",
         "Women Wear",
         "Men Wear",
         "Bag",
@@ -18,6 +28,36 @@ def Video_Generation():
     if st.button("Generate"):
         if not use_case:
             st.error("Please select a use case.")
+        elif use_case == "Dining Area":
+            st.write("Selected Use Case:", use_case)
+            with st.expander("Click here to view the Input Images..."):
+                c1, c2 = st.columns(2)
+                for i in range(len(os.listdir(f"content/video-generation/output/meesho-dining/images/"))):
+                    if i % 2 == 0:
+                        c1.image(f"content/video-generation/output/meesho-dining/images/dining{i+1}.png")
+                    else:
+                        c2.image(f"content/video-generation/output/meesho-dining/images/dining{i+1}.png")
+            with st.spinner("Generating the Video"):
+                time.sleep(2)
+            with st.expander("Click here to view the Generated Video..."):
+                c3, c4 = st.columns(2)
+                c3.video(f"content/video-generation/output/meesho-dining/dining.mp4")
+        elif use_case == "Room":
+            st.write("Selected Use Case:", use_case)
+            with st.expander("Click here to view the Input Images..."):
+                c1, c2 = st.columns(2)
+                for i in range(len(os.listdir(f"content/video-generation/output/meesho-room/images/"))):
+                    if i % 2 == 0:
+                        c1.image(f"content/video-generation/output/meesho-room/images/room{i}.png")
+                    else:
+                        c2.image(f"content/video-generation/output/meesho-room/images/room{i}.png")
+            with st.spinner("Generating the Video"):
+                time.sleep(2)
+            with st.expander("Click here to view the Generated Video..."):
+                c3, c4 = st.columns(2)
+                c3.video(f"content/video-generation/output/meesho-room/room.mp4")
+
+
         else:
             st.write("Selected Use Case:", use_case)
             use_case_parsed = 'meesho-' + '-'.join(use_case.lower().split(' '))

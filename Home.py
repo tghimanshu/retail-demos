@@ -29,17 +29,17 @@ with st.sidebar:
     st.image("content/logos/Google-Logo-Large.png", width=100)
     menu_item = sac.menu([
         sac.MenuItem('Home', icon='house-fill'),
-        sac.MenuItem('Video Generation', icon="camera-video"),
         sac.MenuItem('Stock Image Generation', icon="image"),
         # sac.MenuItem('Image Generation', icon="headset"),
         sac.MenuItem('Image Editing', icon="pencil-square"),
+        sac.MenuItem('Video Generation', icon="camera-video"),
     ], open_all=True, size="sm", color="orange", variant="left-bar", indent=20, key="menu_item")
 page_actions = {
     'Home': Home,
-    'Video Generation': Video_Generation,
     'Stock Image Generation': Stock_Image_Generation,
     'Image Generation': Image_Generation,
     'Image Editing': Image_Editing,
+    'Video Generation': Video_Generation,
 }
 
 if menu_item in page_actions.keys():

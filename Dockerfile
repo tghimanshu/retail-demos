@@ -16,6 +16,9 @@ COPY . .
 # Expose the port Streamlit uses
 EXPOSE 8501
 
+ENV PROJECT_ID=learn-361304
+ENV LOCATION=us-central1
+
 # Define the command to run your Streamlit app
 # Replace "your_app.py" with the name of your main Streamlit file
 CMD ["streamlit", "run", "Home.py", "--server.port=8501", "--server.address=0.0.0.0"]

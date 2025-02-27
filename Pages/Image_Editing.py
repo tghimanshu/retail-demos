@@ -6,6 +6,10 @@ def Image_Editing():
     st.header("Image Editing")
 
     use_cases = [
+        "Floral Lady In Painting Remove",
+        "Floral Lady In Painting Remove v2",
+        "Floral Lady Out Painting",
+        "Floral Lady Change Background",
         "In Painting Insert",
         "In Painting Remove",
         "Out Painting",

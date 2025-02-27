@@ -1,7 +1,7 @@
 import os
+import time
 import streamlit as st
 import vertexai
-import os
 from vertexai.preview.vision_models import ImageGenerationModel
 
 def generate_stock_images(background, foreground, art_style, aspect_ratio):
@@ -39,8 +39,8 @@ Art Style: {art_style}
 def Stock_Image_Generation():
     st.header("Story Image Generation")
 
-    background = st.text_input("Describe the Background...")
-    foreground = st.text_input("Describe the Foreground...")
+    background = st.text_input("Describe the Background...", "A white background with a small flower pot on the right bottom corner")
+    foreground = st.text_input("Describe the Foreground...", "An Indian girl in her 20s wearing a floral top and blue jeans standing")
     art_style = st.selectbox("Select Art Style...", options=[
         "Realistic",
         "Realism",
@@ -51,11 +51,15 @@ def Stock_Image_Generation():
         "Sketchy",
         "Abstract"
     ])
-    aspect_ratio = st.selectbox("Select Aspect Ratio...", options=["1:1", "9:16", "16:9", "4:3", "3:4"])
+    aspect_ratio = st.selectbox("Select Aspect Ratio...", options=["1:1", "9:16", "16:9", "4:3", "3:4"], index=2)
 
     if st.button("Generate"):
         with st.spinner("Generating the Stock Photos..."):
-            images = generate_stock_images(background, foreground, art_style, aspect_ratio)
+            if background == "A white background with a small flower pot on the right bottom corner" and foreground == "An Indian girl in her 20s wearing a floral top and blue jeans standing":
+                time.sleep(5)
+                images = ["./content/cached-images/1.png", "./content/cached-images/2.png", "./content/cached-images/3.png", "./content/cached-images/4.png"]
+            else:
+                images = generate_stock_images(background, foreground, art_style, aspect_ratio)
         with st.expander("Click here to view the generated stock photos..."):
             col1, col2 = st.columns(2)
             for i, image in enumerate(images):
