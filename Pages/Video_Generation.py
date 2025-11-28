@@ -1,8 +1,29 @@
+"""
+Module for the Video Generation demo page.
+
+This module allows users to select from various video generation use cases
+(e.g., "Dining Area", "Room", "Sofa") and view the corresponding input images
+and generated video outputs.
+"""
+
 import streamlit as st
 import time
 import os
 
 def Video_Generation():
+    """
+    Renders the Video Generation demo page.
+
+    This function:
+    1. Displays a header.
+    2. Provides a dropdown to select a specific use case.
+    3. Upon clicking "Generate", it handles specific logic for "Dining Area" and "Room"
+       use cases (displaying multiple input images) and a generic logic for other use cases.
+    4. Displays the generated video(s) for the selected use case from the file system.
+
+    Returns:
+        None
+    """
     st.header("Video Generation")
 
     use_cases = [
@@ -73,5 +94,3 @@ def Video_Generation():
                         c1.video(f"content/video-generation/output/{use_case_parsed}/{use_case_parsed}-{i}.mp4")
                     else:
                         c2.video(f"content/video-generation/output/{use_case_parsed}/{use_case_parsed}-{i}.mp4")
-
-

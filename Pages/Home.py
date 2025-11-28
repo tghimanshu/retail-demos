@@ -1,6 +1,26 @@
+"""
+Module for the Home page of the application.
+
+This module renders the landing page content, including welcome messages,
+logos, and a brief description of the available demos (Video Generation,
+Stock Image Generation, and Image Editing).
+"""
+
 import streamlit as st
 
 def Home():
+    """
+    Renders the Home page content in the Streamlit app.
+
+    It displays:
+    - A promotional image (poster).
+    - A welcome header.
+    - The "Powered by Gemini" logo.
+    - A textual overview of the application's capabilities.
+
+    Returns:
+        None
+    """
     st.image("./content/logos/genai-live-poster.jpg", use_container_width=True)
     st.write(f"# Welcome to GenAI Live!")
     st.write("Powered by")
