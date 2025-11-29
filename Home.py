@@ -1,3 +1,16 @@
+"""
+Main entry point for the Vertex Vision Demos Streamlit application.
+
+This script sets up the Streamlit page configuration, sidebar navigation,
+and routes to different demo pages based on user selection. It acts as a wrapper
+that imports and executes page-specific functions from the `Pages` directory.
+
+Dependencies:
+    streamlit: Web app framework.
+    streamlit_antd_components: For the sidebar menu.
+    Pages.*: Import page functions.
+"""
+
 import streamlit as st
 import streamlit_antd_components as sac
 

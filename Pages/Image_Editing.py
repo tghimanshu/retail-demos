@@ -1,8 +1,30 @@
+"""
+Module for the Image Editing demo page.
+
+This module allows users to select from various image editing use cases
+(e.g., In-painting, Out-painting, Background Change) and view the corresponding
+input and output images.
+"""
+
 import streamlit as st
 import time
 import os
 
 def Image_Editing():
+    """
+    Renders the Image Editing demo page.
+
+    This function:
+    1. Displays a header.
+    2. Provides a dropdown to select a specific use case (e.g., "Floral Lady In Painting Remove").
+    3. Upon clicking "Generate":
+        - Displays the input image for the selected use case.
+        - Simulates a processing delay.
+        - Displays the pre-generated output images from the file system.
+
+    Returns:
+        None
+    """
     st.header("Image Editing")
 
     use_cases = [
@@ -38,5 +60,3 @@ def Image_Editing():
                         c1.image(f"content/image-editing/{use_case_parsed}/img{i+1}.png")
                     else:
                         c2.image(f"content/image-editing/{use_case_parsed}/img{i+1}.png")
-
-
